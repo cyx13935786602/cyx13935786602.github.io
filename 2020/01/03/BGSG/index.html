@@ -54,7 +54,7 @@
 <meta property="og:description" content="算法简介BSGS（baby-step gaint-step），即大步小步算法。常用于求解离散对数问题。  a^x \equiv b \pmod p其中$a \perp b$。 方程的解 $x$ 满足 $0 \le x &lt; p$。 算法过程 设集合S &#x3D; {$k | k &#x3D; a^i \bmod p$} 计算$a^i \bmod p , i \in [1, \sqrt p]$, 加入集合S 在集">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-01-03T13:44:28.000Z">
-<meta property="article:modified_time" content="2020-01-03T15:33:38.791Z">
+<meta property="article:modified_time" content="2020-01-03T16:13:48.974Z">
 <meta property="article:author" content="Jone">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -207,10 +207,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-01-03 21:44:28 / Modified: 23:33:38" itemprop="dateCreated datePublished" datetime="2020-01-03T21:44:28+08:00">2020-01-03</time>
+              <time title="Created: 2020-01-03 21:44:28" itemprop="dateCreated datePublished" datetime="2020-01-03T21:44:28+08:00">2020-01-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-04 00:13:48" itemprop="dateModified" datetime="2020-01-04T00:13:48+08:00">2020-01-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -242,7 +248,7 @@ a^x \equiv b \pmod p</script><p>其中$a \perp b$。 方程的解 $x$ 满足 $0 
 <li>计算$a^i \bmod p , i \in [1, \sqrt p]$, 加入集合S</li>
 <li>在集合S中查找b，若不存在所需元素，则$b = b \times a^{\sqrt p} \bmod p$；若存在该元素，则得到一个可行解。</li>
 </ol>
-<h2 id="算法证明"><a href="#算法证明" class="headerlink" title="算法证明"></a>算法证明</h2><p>因为$a \perp b$， 所以由<strong>费马定理</strong>得到$a^{p - 1} = 1 \pmod p$； 因此只需要求解$x \in [1, p - 1]$ 中的解$x$即可（ $x &gt; p$ 后所得值重复）。由此得到朴素O（p）算法：枚举x的值。 对该算法进行优化，运用分块思想， 将总序列分为 T 块，则每块元素个数为 $\left( \frac{p}{T} \right)$, 得到总时间复杂度为O($\frac{p}{T} + T$), 易证当 $T = \sqrt p$ 时时间复杂度最低。</p>
+<h2 id="算法证明"><a href="#算法证明" class="headerlink" title="算法证明"></a>算法证明</h2><p>因为$a \perp b$， 所以由<strong>费马小定理</strong>得到$a^{p - 1} = 1 \pmod p$； 因此只需要求解$x \in [1, p - 1]$ 中的解$x$即可（ $x &gt; p$ 后所得值重复）。由此得到朴素O（p）算法：枚举x的值。 对该算法进行优化，运用分块思想， 将总序列分为 T 块，则每块元素个数为 $\left( \frac{p}{T} \right)$, 得到总时间复杂度为O($\frac{p}{T} + T$), 易证当 $T = \sqrt p$ 时时间复杂度最低。</p>
 <h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>计算 [1, $\sqrt p$] 为 O($\sqrt p$), 之后最多 $\sqrt p$ 次查询。</p>
 <p>总时间复杂度为$O(\sqrt p)$</p>
 <h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br></pre></td></tr></table></figure>
