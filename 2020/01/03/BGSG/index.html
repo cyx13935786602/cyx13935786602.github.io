@@ -46,15 +46,19 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="CBlog">
-<meta property="og:url" content="https://cyx13935786602.github.io/archives/2020/index.html">
+  <meta name="description" content="算法简介BSGS（baby-step gaint-step），即大步小步算法。常用于求解离散对数问题。  a^x \equiv b \pmod p其中$a \perp b$。 方程的解 $x$ 满足 $0 \le x &lt; p$。 算法过程 设集合S &#x3D; {$k | k &#x3D; a^i \bmod p$} 计算$a^i \bmod p , i \in [1, \sqrt p]$, 加入集合S 在集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BGSG">
+<meta property="og:url" content="https://cyx13935786602.github.io/2020/01/03/BGSG/index.html">
 <meta property="og:site_name" content="CBlog">
+<meta property="og:description" content="算法简介BSGS（baby-step gaint-step），即大步小步算法。常用于求解离散对数问题。  a^x \equiv b \pmod p其中$a \perp b$。 方程的解 $x$ 满足 $0 \le x &lt; p$。 算法过程 设集合S &#x3D; {$k | k &#x3D; a^i \bmod p$} 计算$a^i \bmod p , i \in [1, \sqrt p]$, 加入集合S 在集">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-03T13:44:28.000Z">
+<meta property="article:modified_time" content="2020-01-03T15:06:35.158Z">
 <meta property="article:author" content="Jone">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://cyx13935786602.github.io/archives/2020/">
+<link rel="canonical" href="https://cyx13935786602.github.io/2020/01/03/BGSG/">
 
 
 <script id="page-configurations">
@@ -62,11 +66,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Archive | CBlog</title>
+  <title>BGSG | CBlog</title>
   
 
 
@@ -175,69 +179,100 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 2 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://cyx13935786602.github.io/2020/01/03/BGSG/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jone">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CBlog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          BGSG
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-01-03 21:44:28 / Modified: 23:06:35" itemprop="dateCreated datePublished" datetime="2020-01-03T21:44:28+08:00">2020-01-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6-%E6%95%B0%E8%AE%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">数学 - 数论</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-03T21:44:28+08:00"
-              content="2020-01-03">
-          01-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/03/BGSG/" itemprop="url">
-            <span itemprop="name">BGSG</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-01-03T21:38:12+08:00"
-              content="2020-01-03">
-          01-03
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/01/03/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86-CRT/" itemprop="url">
-            <span itemprop="name">中国剩余定理-CRT</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        <h2 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h2><p>BSGS（baby-step gaint-step），即大步小步算法。常用于求解离散对数问题。</p>
+<script type="math/tex; mode=display">
+a^x \equiv b \pmod p</script><p>其中$a \perp b$。 方程的解 $x$ 满足 $0 \le x &lt; p$。</p>
+<h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><ol>
+<li>设集合S = {$k | k = a^i \bmod p$}</li>
+<li>计算$a^i \bmod p , i \in [1, \sqrt p]$, 加入集合S</li>
+<li>在集合S中查找b，若不存在所需元素，则$b = b \times a^{\sqrt p} \bmod p$；若存在该元素，则得到一个可行解。</li>
+</ol>
+<h2 id="算法证明"><a href="#算法证明" class="headerlink" title="算法证明"></a>算法证明</h2><p>因为$a \perp b$， 所以由<strong>费马定理</strong>得到$a^{p - 1} = 1 \pmod p$； 因此只需要求解$x \in [1, p - 1]$ 中的解$x$即可（ $x &gt; p$ 后所得值重复）。由此得到朴素O（p）算法：枚举x的值。 对该算法进行优化，运用分块思想， 将总序列分为 T 块，则每块元素个数为 $\left( \frac{p}{T} \right)$, 得到总时间复杂度为O($\frac{p}{T} + T$), 易证当 $T = \sqrt p$ 时时间复杂度最低。</p>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>计算 [1, $\sqrt p$] 为 O($\sqrt p$), 之后最多 $\sqrt p$ 次查询。</p>
+<p>总时间复杂度为$O(\sqrt p)$</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br></pre></td></tr></table></figure>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/01/03/%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86-CRT/" rel="prev" title="中国剩余定理-CRT">
+      <i class="fa fa-chevron-left"></i> 中国剩余定理-CRT
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -288,6 +323,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法简介"><span class="nav-number">1.</span> <span class="nav-text">算法简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法过程"><span class="nav-number">2.</span> <span class="nav-text">算法过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法证明"><span class="nav-number">3.</span> <span class="nav-text">算法证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">4.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Code"><span class="nav-number">4.1.</span> <span class="nav-text">Code</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -399,6 +435,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
