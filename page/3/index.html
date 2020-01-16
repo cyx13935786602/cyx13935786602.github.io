@@ -684,10 +684,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-03 23:15:48 / 修改时间：23:33:41" itemprop="dateCreated datePublished" datetime="2020-01-03T23:15:48+08:00">2020-01-03</time>
+              <time title="创建时间：2020-01-03 23:15:48" itemprop="dateCreated datePublished" datetime="2020-01-03T23:15:48+08:00">2020-01-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-16 09:05:21" itemprop="dateModified" datetime="2020-01-16T09:05:21+08:00">2020-01-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -732,7 +738,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>斐波那契数列（Fibonacci sequence），又称黄金分割数列、因数学家列昂纳多·斐波那契（Leonardoda Fibonacci）以兔子繁殖为例子而引入，故又称为“兔子数列”，指的是这样一个数列：$1、1、2、3、5、8、13、21、34、\ldots$在数学上，斐波那契数列以如下被以递推的方法定义：$F(1)=1，F(2)=1, F(n)=F(n-1)+F(n-2)(n \ge 3，n \in N^*)$ 在现代物理、准晶体结构、化学等领域，斐波纳契数列都有直接的应用，为此，美国数学会从1963年起出版了以《斐波纳契数列季刊》为名的一份数学杂志，用于专门刊载这方面的研究成果。</p>
+<p align="right">——摘自百度百科</p>
+
+<h2 id="通项公式"><a href="#通项公式" class="headerlink" title="通项公式"></a>通项公式</h2><p>由特征方程求解， 由于在OI中通项公式不常用到（但是仍然有用）， 这里只给出解析解， 不给出证明， 证明可参考<a href="https://baike.baidu.com/item/%E7%89%B9%E5%BE%81%E6%96%B9%E7%A8%8B/2678218?fr=aladdin" target="_blank" rel="noopener">特征方程</a>。</p>
+<script type="math/tex; mode=display">
+F_n = \frac{\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n}{\sqrt{5}}</script><p>进一步的， 由于第二项指数级的减小， 所以可以写成：</p>
+<script type="math/tex; mode=display">
+F_n = \left[\frac{\left(\frac{1+\sqrt5}{2}\right)^n}{\sqrt5}\right]</script><p>中括号表示取离它最近的整数。</p>
+<blockquote>
+<p>注意!</p>
+<p>这两个式子在计算时需要极高的精确度</p>
+<h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2></blockquote>
+<p>这里列出相关性质与其简易证明：</p>
+<ol>
+<li>Cassini’s identity : $F_{n-1}F_{n+1}-F_{n}^2 = (-1)^n$</li>
+<li>附加性质 : $F_{n + k} = F_kF_{n + 1} + F_{k-1}F_n$</li>
+<li>取 (2) 中 $k = n$, 得到 $F_{2n} = F_{n}(F_{n + 1} + F_{n - 1})$</li>
+<li>对 (3) 进行数学归纳得, $\forall k \in \mathbb{N}, F_{n} | F_{nk}$</li>
+<li>由于 (4) 可逆， 得到 $\forall F_a | F_b, a | b$</li>
+<li>GCD性质: $\gcd(F_n, F_m) = F_{\gcd(n, m)}$</li>
+<li>前缀和性质： $\Sigma_{i = 1}^{n}F_i = F_{n+2} - 1$</li>
+<li>$\Sigma_{i=1}^{n}{i \times F_i} = nF_{n+2} - F_{n+3} + 2$</li>
+</ol>
+<h3 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h3><h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质(1)"></a>性质(1)</h4><p>待施工</p>
+<h3 id="模意义下的周期性"><a href="#模意义下的周期性" class="headerlink" title="模意义下的周期性"></a>模意义下的周期性</h3><p>考虑模 $p$ 意义下的斐波那契数列， 由抽屉原理易证，该数列有周期性。考虑模 $p$ 意义下的斐波那契数列的前 $p^{2} + 1$个相邻数对:</p>
+<script type="math/tex; mode=display">
+(F_1,F_2),(F_2,F_3),\ldots,(F_{p^2+1}, F_{p^2+2})</script><p>由于 $p$ 的剩余系大小为 $p$, 则这 $p^2 + 1$ 个数对中必有二项完全相同，则由此两项推出的数完全相同，原命题得证。</p>
+<h2 id="求解方法"><a href="#求解方法" class="headerlink" title="求解方法"></a>求解方法</h2><h3 id="递推法"><a href="#递推法" class="headerlink" title="递推法"></a>递推法</h3><p>由递推公式 $F_{i+2} = F_{i+1} + F_{i}$ 在O(n)内得到。</p>
+<h3 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h3><p>斐波那契矩阵表达式：</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+F_{i+2}\\
+F_{i+1}\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1&1\\
+1&0\\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+F_{i+1}\\
+F_{i}\\
+\end{bmatrix}</script><p>令$P = \begin{bmatrix}1&amp;1\\1&amp;0\end{bmatrix}$, 得到 $\begin{bmatrix}F_{n+2}\\F_{n+1}\end{bmatrix}=P^n \cdot \begin{bmatrix}F_2\\F_1\end{bmatrix}$</p>
+<h3 id="快速倍增法"><a href="#快速倍增法" class="headerlink" title="快速倍增法"></a>快速倍增法</h3><p>由其性质(2)得到：</p>
+<script type="math/tex; mode=display">
+F_{2n} = F_{n}(2F_{n+1} - F_{n})\\
+F_{2n+1} = F_{n+1}^2 + F_{n}^2\\</script><p>可以通过二元组(F_{i+1}, F_i), 进行倍增运算<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; fib(<span class="keyword">int</span> n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">  <span class="keyword">auto</span> p = fib(n &gt;&gt; <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">int</span> c = p.first * (<span class="number">2</span> * p.second - p.first);</span><br><span class="line">  <span class="keyword">int</span> d = p.first * p.first + p.second * p.second;</span><br><span class="line">  <span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;d, c + d&#125;;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> &#123;c, d&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -1044,10 +1098,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-03 23:14:05 / 修改时间：23:29:36" itemprop="dateCreated datePublished" datetime="2020-01-03T23:14:05+08:00">2020-01-03</time>
+              <time title="创建时间：2020-01-03 23:14:05" itemprop="dateCreated datePublished" datetime="2020-01-03T23:14:05+08:00">2020-01-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-16 09:06:13" itemprop="dateModified" datetime="2020-01-16T09:06:13+08:00">2020-01-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -1092,7 +1152,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="定理描述"><a href="#定理描述" class="headerlink" title="定理描述"></a>定理描述</h2><p>Lucas 定理用于求解组合数取模问题，其中模数 $p$ 为质数。</p>
+<blockquote>
+<p>Lucas 定理 :</p>
+<blockquote>
+<p>$C_{n}^{m} \equiv \prod_{i = 1}^{k} C_{n_i}^{m_i} \pmod p$, 其中 $n_i, m_i$ 为 $n, m$ 在 $p$ 进制下第 $i$ 位的数字</p>
+</blockquote>
+</blockquote>
+<h2 id="定理证明"><a href="#定理证明" class="headerlink" title="定理证明"></a>定理证明</h2><p>考虑 $C_{p}^{n} \bmod p$ 的取值， 因为 $\displaystyle C_{p}^{n} = \frac{p!}{n!(p-n)!}$ ，分子的质因数分解中 $p$ 次项恰好为 $1$, 因此只有当 $n = 0$ 或 $n = p$ 时, 分子 $n!(p - n)!$ 的质因数分解中含有 $p$ , 因此 $C_{p}^{n} \bmod p = [n = 0 \vee n = p]$ 。</p>
+<p>由此, 我们可以得到更强的结论：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(a + b) ^ {p} &= \Sigma_{n = 0}^{p} C_{p}^{n}a^{n}b^{p-n} \\
+&\equiv \Sigma_{n = 0}^{p}[n = 0 \vee n = p]a^{n}b^{p-n} \pmod p\\
+&\equiv a^{p} + b^{p} \pmod p\\
+\end{align}</script><blockquote>
+<p>Tips:<br>此结论不仅适用于整数域， 同样适用于多项式。</p>
+<p>由此可推导出二项式 $f(x) = (ax^{n} + bx^m)^p \bmod p$ 的结果为：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(ax^n + bx^m) ^ p &\equiv a^px^{pn} + b^{p}x^{pm} \\
+&\equiv ax^{pn} + bx^{pm} \\
+&\equiv f(x^p) \pmod p \\
+\end{align}</script></blockquote>
+<p>考虑二项式 $(1 + x)^n \bmod p$, 那么 $C_{n}^{m}$ 就是求二项式在 $x_{m}$ 次项的值。<br>使用上述引理， 可以知道：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(1 + x) ^ {n} &\equiv (1 + x) ^ {p\lfloor n/p \rfloor}(1 + x)^{n \bmod p}\\
+&\equiv (1 + x^{p})^{\lfloor n/p \rfloor}(1 + x)^{n \bmod p}\\
+\end{align}</script><p>注意到前者只有在 $p$ 的倍数处才能产生贡献，而对于后者有 $n \bmod p \le p - 1$, 因此其卷积在任何位置只有最多一种方式产生贡献，得到：</p>
+<script type="math/tex; mode=display">
+\binom{m}{n} \equiv \binom{\lfloor m/q \rfloor}{\lfloor n/q \rfloor} \times \binom{m \bmod p}{n \bmod p} \pmod p</script><h2 id="代码实现-c"><a href="#代码实现-c" class="headerlink" title="代码实现(c++)"></a>代码实现(c++)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+
       
     </div>
 

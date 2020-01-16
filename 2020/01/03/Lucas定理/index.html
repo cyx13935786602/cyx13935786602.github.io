@@ -46,13 +46,15 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="定理描述Lucas 定理用于求解组合数取模问题，其中模数 $p$ 为质数。  Lucas 定理 :  $C_{n}^{m} \equiv \prod_{i &#x3D; 1}^{k} C_{n_i}^{m_i} \pmod p$, 其中 $n_i, m_i$ 为 $n, m$ 在 $p$ 进制下第 $i$ 位的数字   定理证明考虑 $C_{p}^{n} \bmod p$ 的取值， 因为 $\display">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Lucas定理">
 <meta property="og:url" content="https://cyx13935786602.github.io/2020/01/03/Lucas%E5%AE%9A%E7%90%86/index.html">
 <meta property="og:site_name" content="CBlog">
+<meta property="og:description" content="定理描述Lucas 定理用于求解组合数取模问题，其中模数 $p$ 为质数。  Lucas 定理 :  $C_{n}^{m} \equiv \prod_{i &#x3D; 1}^{k} C_{n_i}^{m_i} \pmod p$, 其中 $n_i, m_i$ 为 $n, m$ 在 $p$ 进制下第 $i$ 位的数字   定理证明考虑 $C_{p}^{n} \bmod p$ 的取值， 因为 $\display">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-03T15:14:05.000Z">
-<meta property="article:modified_time" content="2020-01-03T15:29:36.624Z">
+<meta property="article:modified_time" content="2020-01-16T01:06:13.459Z">
 <meta property="article:author" content="Soch_">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -236,10 +238,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-03 23:14:05 / 修改时间：23:29:36" itemprop="dateCreated datePublished" datetime="2020-01-03T23:14:05+08:00">2020-01-03</time>
+              <time title="创建时间：2020-01-03 23:14:05" itemprop="dateCreated datePublished" datetime="2020-01-03T23:14:05+08:00">2020-01-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-16 09:06:13" itemprop="dateModified" datetime="2020-01-16T09:06:13+08:00">2020-01-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -284,7 +292,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="定理描述"><a href="#定理描述" class="headerlink" title="定理描述"></a>定理描述</h2><p>Lucas 定理用于求解组合数取模问题，其中模数 $p$ 为质数。</p>
+<blockquote>
+<p>Lucas 定理 :</p>
+<blockquote>
+<p>$C_{n}^{m} \equiv \prod_{i = 1}^{k} C_{n_i}^{m_i} \pmod p$, 其中 $n_i, m_i$ 为 $n, m$ 在 $p$ 进制下第 $i$ 位的数字</p>
+</blockquote>
+</blockquote>
+<h2 id="定理证明"><a href="#定理证明" class="headerlink" title="定理证明"></a>定理证明</h2><p>考虑 $C_{p}^{n} \bmod p$ 的取值， 因为 $\displaystyle C_{p}^{n} = \frac{p!}{n!(p-n)!}$ ，分子的质因数分解中 $p$ 次项恰好为 $1$, 因此只有当 $n = 0$ 或 $n = p$ 时, 分子 $n!(p - n)!$ 的质因数分解中含有 $p$ , 因此 $C_{p}^{n} \bmod p = [n = 0 \vee n = p]$ 。</p>
+<p>由此, 我们可以得到更强的结论：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(a + b) ^ {p} &= \Sigma_{n = 0}^{p} C_{p}^{n}a^{n}b^{p-n} \\
+&\equiv \Sigma_{n = 0}^{p}[n = 0 \vee n = p]a^{n}b^{p-n} \pmod p\\
+&\equiv a^{p} + b^{p} \pmod p\\
+\end{align}</script><blockquote>
+<p>Tips:<br>此结论不仅适用于整数域， 同样适用于多项式。</p>
+<p>由此可推导出二项式 $f(x) = (ax^{n} + bx^m)^p \bmod p$ 的结果为：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(ax^n + bx^m) ^ p &\equiv a^px^{pn} + b^{p}x^{pm} \\
+&\equiv ax^{pn} + bx^{pm} \\
+&\equiv f(x^p) \pmod p \\
+\end{align}</script></blockquote>
+<p>考虑二项式 $(1 + x)^n \bmod p$, 那么 $C_{n}^{m}$ 就是求二项式在 $x_{m}$ 次项的值。<br>使用上述引理， 可以知道：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+(1 + x) ^ {n} &\equiv (1 + x) ^ {p\lfloor n/p \rfloor}(1 + x)^{n \bmod p}\\
+&\equiv (1 + x^{p})^{\lfloor n/p \rfloor}(1 + x)^{n \bmod p}\\
+\end{align}</script><p>注意到前者只有在 $p$ 的倍数处才能产生贡献，而对于后者有 $n \bmod p \le p - 1$, 因此其卷积在任何位置只有最多一种方式产生贡献，得到：</p>
+<script type="math/tex; mode=display">
+\binom{m}{n} \equiv \binom{\lfloor m/q \rfloor}{\lfloor n/q \rfloor} \times \binom{m \bmod p}{n \bmod p} \pmod p</script><h2 id="代码实现-c"><a href="#代码实现-c" class="headerlink" title="代码实现(c++)"></a>代码实现(c++)</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -369,6 +408,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定理描述"><span class="nav-number">1.</span> <span class="nav-text">定理描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定理证明"><span class="nav-number">2.</span> <span class="nav-text">定理证明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现-c"><span class="nav-number">3.</span> <span class="nav-text">代码实现(c++)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

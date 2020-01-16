@@ -871,10 +871,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-01-03 23:23:24 / 修改时间：23:34:42" itemprop="dateCreated datePublished" datetime="2020-01-03T23:23:24+08:00">2020-01-03</time>
+              <time title="创建时间：2020-01-03 23:23:24" itemprop="dateCreated datePublished" datetime="2020-01-03T23:23:24+08:00">2020-01-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-16 09:05:35" itemprop="dateModified" datetime="2020-01-16T09:05:35+08:00">2020-01-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -919,7 +925,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="算法相关"><a href="#算法相关" class="headerlink" title="算法相关"></a>算法相关</h2><h4 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h4><p>给出一个字符串S[1…n]，则后缀 $i$ 表示 S[i…n]</p>
+<h4 id="后缀数组"><a href="#后缀数组" class="headerlink" title="后缀数组"></a>后缀数组</h4><p>将后缀 1 - n 按照字典序由小到大进行排序，得到SA数组为后缀数组。<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">S : hello</span><br><span class="line">SA : [2,1,4,3,5]</span><br><span class="line">1 : ello(后缀2)</span><br><span class="line">2 : hello(后缀1)</span><br><span class="line">3 : lo(后缀4)</span><br><span class="line">4 : llo(后缀3)</span><br><span class="line">5 : o(后缀5)</span><br></pre></td></tr></table></figure></p>
+<h4 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h4><p><a href="https://cyx13935786602.github.io">排序相关</a></p>
+<h2 id="求解方法"><a href="#求解方法" class="headerlink" title="求解方法"></a>求解方法</h2><p>这里介绍一种倍增求解的方法, 如图：</p>
+<p><img src="/2020/01/03/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/1.png" alt="bit"></p>
+<p>可以知道其时间复杂度为O($logn \times T$), 其中 $T$ 为排序的时间复杂度。由此得到使用快速排序的时间复杂度为 O($nlog^2n$)。但我们通常改用基数排序的方法使得其时间复杂度降为 O($nlogn$)， 以达到更高的效率。</p>
+<p>因此我们可以得到如下算法步骤：</p>
+<ol>
+<li>得到当前字符串长度 $k$（由 $1$ 开始倍增）</li>
+<li>获取 $n$ 个字符串 , 第 $i$ 个字符串(后缀 $i$ )组成为 [$x$, $y$] : [$rank_i$, $rank_{i+k}$])</li>
+<li>对 $n$ 个字符串进行排序并维护新的<strong>rank</strong>数组</li>
+<li>当<strong>rank</strong>数组中所有值均不相同时停止倍增(由于已经两两互异，继续倍增已不会对<strong>rank</strong>数组产生影响)</li>
+<li>维护SA数组(基数排序过程中可以顺带维护)<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2></li>
+</ol>
+
       
     </div>
 
