@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>三角剖分</title>
+    <url>/2020/01/17/%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86/</url>
+    <content><![CDATA[<h3 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h3><p>在几何中， 三角剖分是指将平面对象细分为三角形， 并且通过扩展高维几何对象细分为单纯形。 对于一个给定的点集， 有很多种三角剖分， 如：<br><img src="/2020/01/17/%E4%B8%89%E8%A7%92%E5%89%96%E5%88%86/1.svg" alt="图片1"></p>
+<h3 id="Delaunay-三角剖分"><a href="#Delaunay-三角剖分" class="headerlink" title="Delaunay 三角剖分"></a>Delaunay 三角剖分</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>在数学和计算几何中， 对于给定平面中的离散点集 $P$, 其 $Delaunay$ 三角剖分 $DT(P)$ 满足：</p>
+<ol>
+<li>空圆性： $DT(P)$ 是 <strong>唯一</strong> 的（任意四点不共园）， 在 DT(P) 中, 任意三角形的外接圆范围内不会有其它点存在。</li>
+<li>最大化最小角： 在点集 $P$ 可能形成的三角剖分中， $DT(P)$ 所形成的三角形的最小角最大。 从这个意义上来讲， $DT(P)$ 是最接近规则化的三角剖分。 具体说是在两个相邻的三角形构成的凸四边形的对角线， 在相互交换后， 两个内角的最小角不再增大。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>计算几何</category>
+      </categories>
+      <tags>
+        <tag>计算几何</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pick</title>
+    <url>/2020/01/17/Pick/</url>
+    <content><![CDATA[<h3 id="定理描述"><a href="#定理描述" class="headerlink" title="定理描述"></a>定理描述</h3><p>Pick定理 : 给定整数坐标系， 在该系上的简单多边形， 其面积 $A$ 与内部格点数目 $i$, 边上格点数目 $b$ 有： $A = i + \frac{b}{2} - 1$。</p>
+<h3 id="定理推广"><a href="#定理推广" class="headerlink" title="定理推广"></a>定理推广</h3><ul>
+<li>取格点的组成图形面积为一单位。在平行四边形格点，Pick定理依然成立。</li>
+<li>对于非简单的多边形 $P$ ， Pick定理 $A = i + \frac{b}{2} - x(P)$, 其中 $x(P)$ 表示 $P$ 的 <strong>欧拉特征数</strong>。</li>
+<li>Ehrhart多项式</li>
+<li>Pick定理 和 <strong>欧拉公式</strong> ($V - E + F = 2$) 等价。</li>
+</ul>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p> POJ1265</p>
+]]></content>
+      <categories>
+        <category>计算几何</category>
+      </categories>
+      <tags>
+        <tag>计算几何</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>动态DP</title>
     <url>/2020/01/03/%E5%8A%A8%E6%80%81DP/</url>
     <content><![CDATA[]]></content>
@@ -367,7 +403,7 @@ F_{i}\\
 <h3 id="快速倍增法"><a href="#快速倍增法" class="headerlink" title="快速倍增法"></a>快速倍增法</h3><p>由其性质(2)得到：</p>
 <script type="math/tex; mode=display">
 F_{2n} = F_{n}(2F_{n+1} - F_{n})\\
-F_{2n+1} = F_{n+1}^2 + F_{n}^2\\</script><p>可以通过二元组(F_{i+1}, F_i), 进行倍增运算<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; fib(<span class="keyword">int</span> n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">  <span class="keyword">auto</span> p = fib(n &gt;&gt; <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">int</span> c = p.first * (<span class="number">2</span> * p.second - p.first);</span><br><span class="line">  <span class="keyword">int</span> d = p.first * p.first + p.second * p.second;</span><br><span class="line">  <span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;d, c + d&#125;;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> &#123;c, d&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+F_{2n+1} = F_{n+1}^2 + F_{n}^2\\</script><p>可以通过二元组($F_{i+1}$, $F_i$), 进行倍增运算<br>代码如下：<br><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; fib(<span class="keyword">int</span> n) &#123;</span><br><span class="line">  <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">  <span class="keyword">auto</span> p = fib(n &gt;&gt; <span class="number">1</span>);</span><br><span class="line">  <span class="keyword">int</span> c = p.first * (<span class="number">2</span> * p.second - p.first);</span><br><span class="line">  <span class="keyword">int</span> d = p.first * p.first + p.second * p.second;</span><br><span class="line">  <span class="keyword">if</span> (n &amp; <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> &#123;d, c + d&#125;;</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> &#123;c, d&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>数学</category>
@@ -456,7 +492,7 @@ F_{2n+1} = F_{n+1}^2 + F_{n}^2\\</script><p>可以通过二元组(F_{i+1}, F_i),
     <url>/2020/01/03/BGSG/</url>
     <content><![CDATA[<h2 id="算法简介"><a href="#算法简介" class="headerlink" title="算法简介"></a>算法简介</h2><p>BSGS（baby-step gaint-step），即大步小步算法。常用于求解离散对数问题。</p>
 <script type="math/tex; mode=display">
-a^x \equiv b \pmod p</script><p>其中$a \perp b$。 方程的解 $x$ 满足 $0 \le x &lt; p$。</p>
+a^x \equiv b \pmod p</script><p>其中$a \perp p$。 方程的解 $x$ 满足 $0 \le x &lt; p$。</p>
 <h2 id="算法过程"><a href="#算法过程" class="headerlink" title="算法过程"></a>算法过程</h2><ol>
 <li>设集合S = {$k | k = a^i \bmod p$}</li>
 <li>计算$a^i \bmod p , i \in [1, \sqrt p]$, 加入集合S</li>
